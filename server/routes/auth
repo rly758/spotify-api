@@ -43,7 +43,7 @@ router.get("/callback", async (req, res) => {
   };
 
   req.session.jwt = jwt.sign(sessionJWTObject, process.env.JWT_SECRET_KEY);
-  return res.redirect("/");
+  res.redirect("/");
 });
 
 router.get("/current-session", (req, res) => {
@@ -62,7 +62,7 @@ router.get("/current-session", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.session = null;
-  res.redirect(`/`);
+  res.redirect("/");
 });
 
 module.exports = router;

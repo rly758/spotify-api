@@ -4,7 +4,15 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "axios": "^1.7.7",
+    "cookie-session": "^2.1.0",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"

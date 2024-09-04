@@ -7,7 +7,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 
 // import config
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({ path: path.resolve(__dirname, ".env.local") }); //local .env for development
+//dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
 

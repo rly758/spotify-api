@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
 import Home from "./Home";
 import Loading from "./Loading";
@@ -9,9 +8,13 @@ function App() {
   const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    axios.get("/auth/current-session").then(({ data }) => {
-      setAuth(data);
-    });
+    //switch to fetch
+    fetch("/auth/current-session")
+      .then((response) => response.json())
+      .then((data) => {
+        setAuth(data);
+        console.log(data);
+      });
   }, []);
 
   if (auth === null) {

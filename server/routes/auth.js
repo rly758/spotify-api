@@ -67,7 +67,7 @@ router.get("/callback", async (req, res) => {
   const response = await body.json(); //response contains access token and refresh token
 
   const sessionJWTObject = {
-    token: response,
+    token: response.access_token,
   };
 
   req.session.jwt = jwt.sign(sessionJWTObject, process.env.JWT_SECRET_KEY);

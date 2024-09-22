@@ -8,12 +8,10 @@ function App() {
   const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    //switch to fetch
     fetch("/auth/current-session")
       .then((response) => response.json())
       .then((data) => {
         setAuth(data);
-        console.log(data);
       });
   }, []);
 

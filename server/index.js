@@ -25,7 +25,7 @@ app.use(
 
 app.use(csurf());
 
-const authRoutes = require("./routes/auth");
+const authRoutes = require("./routes/auth.js");
 
 app.use("/auth", authRoutes);
 

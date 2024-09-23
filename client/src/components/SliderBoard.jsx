@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Grid2 as Grid, Typography, Slider, Checkbox } from "@mui/material";
 
 const sliders = {
+  popularity: {
+    value: [0, 100],
+    enabled: false,
+    min: 0,
+    max: 100,
+    step: 1,
+  },
   acousticness: {
     value: [0, 1],
     enabled: false,
@@ -43,13 +50,7 @@ const sliders = {
     min: -60,
     max: 0,
   },
-  popularity: {
-    value: [0, 100],
-    enabled: false,
-    min: 0,
-    max: 100,
-    step: 1,
-  },
+
   speechiness: {
     value: [0, 1],
     enabled: false,
@@ -103,11 +104,11 @@ const SliderBoard = ({ onChange }) => {
             />
             <div style={{ flex: 1 }}>
               <Typography>{slider}</Typography>
-              <Grid container spacing={1}>
-                <Grid>
+              <Grid container spacing={3}>
+                <Grid size={{ xs: 1 }}>
                   <Typography>Min</Typography>
                 </Grid>
-                <Grid>
+                <Grid size={{ xs: 10 }}>
                   <Slider
                     disabled={!sliderValues[slider].enabled}
                     value={sliderValues[slider].value}
@@ -121,7 +122,7 @@ const SliderBoard = ({ onChange }) => {
                     step={sliders[slider].step}
                   />
                 </Grid>
-                <Grid>
+                <Grid size={{ xs: 1 }}>
                   <Typography>Max</Typography>
                 </Grid>
               </Grid>

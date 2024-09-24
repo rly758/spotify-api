@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 
 const SearchResults = ({ results, onChange }) => {
-  const [checked, setChecked] = React.useState([]); //array of objects (checked artists )
+  const [checked, setChecked] = React.useState([]); //array of checked artists (specifically their artist id)
 
   const handleToggle = (item) => () => {
-    const currentIndex = checked.indexOf(item); //currentIndex is the index of the artist object in the checked array
+    const currentIndex = checked.indexOf(item); //currentIndex is the index of the artist in the checked array
     const newChecked = [...checked];
     //if currentIndex is not in checked
     if (currentIndex === -1) {

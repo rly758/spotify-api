@@ -36,7 +36,7 @@ const Recommender = ({ auth }) => {
     } else {
       selectedArtistsString = `seed_artists=${selectedArtists
         .map(function (x) {
-          X.id;
+          return x.id;
         })
         .join(",")}`;
     }

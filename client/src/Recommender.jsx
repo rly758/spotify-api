@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid2 as Grid, TextField, Button, Typography } from "@mui/material";
-import { Search } from "@mui/icons-material";
+import { Search, X } from "@mui/icons-material";
 import SearchResults from "./components/SearchResults";
 import TrackList from "./components/TrackList";
 import SliderBoard from "./components/SliderBoard";
@@ -34,7 +34,11 @@ const Recommender = ({ auth }) => {
     if (selectedArtists.length < 0) {
       return;
     } else {
-      selectedArtistsString = `seed_artists=${selectedArtists.join(",")}`;
+      selectedArtistsString = `seed_artists=${selectedArtists
+        .map(function (x) {
+          X.id;
+        })
+        .join(",")}`;
     }
 
     // create sliders query string
@@ -66,13 +70,6 @@ const Recommender = ({ auth }) => {
       <Grid container style={{ padding: 20 }} spacing={1}>
         <Grid size={{ xs: 12 }}>Spotify Recommender</Grid>
         <Grid size={{ xs: 6 }}>
-          <Grid size={{ xs: 12 }}>
-            {selectedArtists.map((artist, index) => (
-              <Typography>
-                {index + 1}. {artist}
-              </Typography>
-            ))}
-          </Grid>
           <Grid
             size={{ xs: 12 }}
             style={{ display: "flex", flexDirection: "row" }}
@@ -97,6 +94,13 @@ const Recommender = ({ auth }) => {
               onChange={setSelectedArtists}
               results={searchResults}
             />
+          </Grid>
+          <Grid size={{ xs: 12 }}>
+            {selectedArtists.map((artist, index) => (
+              <Typography key={artist.id}>
+                {index + 1}. {artist.name}
+              </Typography>
+            ))}
           </Grid>
         </Grid>
         <Grid size={{ xs: 6 }}>

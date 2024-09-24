@@ -8,20 +8,25 @@ import {
 } from "@mui/material";
 
 const SearchResults = ({ results, onChange }) => {
-  const [checked, setChecked] = React.useState([]);
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
+  const [checked, setChecked] = React.useState([]); //array of checked artists (specifically their artist id)
+
+  const handleToggle = (item) => () => {
+    const currentIndex = checked.indexOf(item); //currentIndex is the index of the artist in the checked array
     const newChecked = [...checked];
+    //if currentIndex is not in checked
     if (currentIndex === -1) {
+      //and if checked contains less than 3 items
       if (checked.length < 3) {
-        newChecked.push(value);
+        newChecked.push(item);
       }
     } else {
-      newChecked.splice(currentIndex, 1);
+      //currentIndex is in checked
+      newChecked.splice(currentIndex, 1); //removes 1 item at currentIndex
     }
     setChecked(newChecked);
     onChange(newChecked);
   };
+
   return (
     <List style={{ maxHeight: "10rem", overflow: "auto" }}>
       {results.map((item, index) => (
@@ -29,12 +34,12 @@ const SearchResults = ({ results, onChange }) => {
           key={item.id}
           dense
           button="true"
-          onClick={handleToggle(item.id)}
+          onClick={handleToggle(item)}
         >
           <ListItemIcon>
             <Checkbox
               edge={"start"}
-              checked={checked.indexOf(item.id) !== -1}
+              checked={checked.indexOf(item) !== -1}
               tabIndex={-1}
               disableRipple
             />

@@ -68,8 +68,8 @@ const Recommender = ({ auth }) => {
         <Grid size={{ xs: 6 }}>
           <Grid size={{ xs: 12 }}>
             {selectedArtists.map((artist, index) => (
-              <Typography key={artist.id}>
-                {index + 1}. {artist.name}
+              <Typography>
+                {index + 1}. {artist}
               </Typography>
             ))}
           </Grid>

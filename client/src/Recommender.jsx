@@ -54,7 +54,7 @@ const Recommender = ({ auth }) => {
     const minString = min.join("&");
     const maxString = max.join("&");
 
-    console.log(`${url}?${selectedArtistsString}&${minString}&${maxString}`);
+    //console.log(`${url}?${selectedArtistsString}&${minString}&${maxString}`);
 
     fetch(`${url}?${selectedArtistsString}&${minString}&${maxString}`, {
       headers: {

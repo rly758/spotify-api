@@ -10,9 +10,11 @@ const TrackList = ({ results }) => {
     <List>
       {results.tracks.map((track) => (
         <ListItem size={{ xs: 12 }} key={track.id}>
-          <ListItemText>
-            {track.name} - {track.artists ? track.artists[0].name : ""}
-          </ListItemText>
+          <a href={track.external_urls.spotify} target="_blank">
+            <ListItemText>
+              {track.name} - {track.artists ? track.artists[0].name : ""}
+            </ListItemText>
+          </a>
         </ListItem>
       ))}
     </List>
